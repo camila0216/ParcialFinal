@@ -7,6 +7,16 @@ class Visualizacion extends Component {
     this.drawChart(data);
   }
 
+  maxY(data) {
+    let max = -1;
+    data.forEach((element) => {
+      if (element.seasons > max) {
+        max = element.seasons;
+      }
+    });
+    return max;
+  }
+
   drawChart(data) {
     const canvas = d3.select(this.refs.canvas);
     const width = 700;
@@ -23,7 +33,10 @@ class Visualizacion extends Component {
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    const y = d3.scaleLinear().domain([0, 12]).range([iheight, 0]);
+    const y = d3
+      .scaleLinear()
+      .domain([0, this.maxY(data)])
+      .range([iheight, 0]);
 
     const x = d3
       .scaleBand()

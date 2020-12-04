@@ -1,0 +1,8 @@
+{
+  "Name": "Nombre",
+  "Channel": "Canal",
+  "Description": "Descripción",
+  "Series": "Series",
+  "Error": "Error al conectar con el API. Por favor intente de nuevo mas tarde.",
+  "Seasons": "Temporadas"
+}
